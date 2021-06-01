@@ -19,9 +19,9 @@ const Main = () =>{
                     <Content style={{ padding: '0 50px'}}>
                     <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
                         <Sider className="site-layout-background" width={200} theme="dark">
-                                <Menu mode="inline" style={{height:'100%'}} selectedKeys={[location]} theme="dark" >
+                                <Menu mode="inline" style={{height:'100%'}} selectedKeys={[location]} defaultSelectedKeys={['playlist']} theme="dark" >
                                     <Menu.Item key="playlist" icon={<UnorderedListOutlined />} onClick={()=>setLocation("playlist")}>
-                                        <Link to="/Playlist">
+                                        <Link to="/">
                                             Play List
                                         </Link>
                                     </Menu.Item>
@@ -35,7 +35,7 @@ const Main = () =>{
                         </Sider>
                         <Content style={{ padding: '0 24px', minHeight: 280,backgroundColor:'white'  }}>
                             <Switch>
-                                <Route exact path="/Playlist" component={Playlist}/>
+                                <Route exact path="/" component={Playlist}/>
                                 <Route exact path="/Playing" component={Playing}/>
                             </Switch>
                         </Content>
