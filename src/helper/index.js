@@ -1,8 +1,8 @@
-import { NAPSTER_API_KEY } from "../constants";
+
 import axios from "axios";
 export const getCurrentSongData = async (trackId) => {
   const response = await axios(
-    `https://api.napster.com/v2.1/tracks/${trackId}?apikey=${NAPSTER_API_KEY}`
+    `https://api.napster.com/v2.1/tracks/${trackId}?apikey=${process.env.REACT_APP_NAPSTER_API_KEY}`
   );
   const result = await response.data;
   const { albumId, previewURL, artistName, name } = await result.tracks[0];
@@ -17,7 +17,7 @@ export const getCurrentSongData = async (trackId) => {
 export const getTopTracks = async () => {
     let tracks = [];
     const response = await axios(
-      `https://api.napster.com/v2.1/tracks/top?apikey=${NAPSTER_API_KEY}`
+      `https://api.napster.com/v2.1/tracks/top?apikey=${process.env.REACT_APP_NAPSTER_API_KEY}`
     );
     const { tracks: responseTracks } = await response.data;
     await responseTracks.forEach(track => {
